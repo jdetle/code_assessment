@@ -1,0 +1,95 @@
+{
+  "name": "meshify",
+  "version": "0.0.1",
+  "description": "Code assesment for meshify",
+  "main": "index.ts",
+  "scripts": {
+    "clean": "rimraf .next",
+    "analyze": "cross-env ANALYZE=all npm run build",
+    "dev": "npm run build:next && cross-env NODE_ENV=development nodemon server.ts -p $PORT",
+    "debug": "npm run build:next && cross-env NODE_ENV=development nodemon --inspect server.ts -p $PORT",
+    "build": "npm run clean && npm run build:next && npm run build:server",
+    "build:next": "next build",
+    "build:server": "cp ./server.ts .next/server.ts && cp ./routes.ts .next/routes.ts && cp -r static .next/static",
+    "start": "cross-env NODE_ENV=production node server.ts -p $PORT",
+    "tslint": "./node_modules/.bin/tslint -c tslint.json -p tsconfig.json",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdetle/code_assessment.git"
+  },
+  "author": "John Joseph Patrick Detlefs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jdetle/code_assessment/issues"
+  },
+  "homepage": "https://github.com/jdetle/code_assessment#readme",
+  "devDependencies": {
+    "@types/next": "^7.0.5",
+    "@types/react": "^16.7.18",
+    "@types/react-dom": "^16.0.11",
+    "@zeit/next-bundle-analyzer": "^0.1.2",
+    "@zeit/next-typescript": "^1.1.1",
+    "cross-env": "^5.2.0",
+    "express": "^4.16.4",
+    "husky": "^1.2.1",
+    "lint-staged": "^8.1.0",
+    "next": "^7.0.2",
+    "prettier": "^1.15.3",
+    "rimraf": "^2.6.2",
+    "tslint": "^5.12.0",
+    "tslint-config-prettier": "^1.17.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.2.2",
+    "webpack-bundle-analyzer": "^3.0.3"
+  },
+  "dependencies": {
+    "nextjs-dynamic-routes": "^2.2.1",
+    "react": "^16.7.0-alpha2",
+    "react-dom": "^16.7.0-alpha2",
+    "isomorphic-fetch": "^2.2.1",
+    "moment": "^2.22.2"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testMatch": [
+      "**/*.(test|spec).(ts|tsx)"
+    ],
+    "globals": {
+      "ts-jest": {
+        "babelConfig": true,
+        "tsConfig": "jest.tsconfig.json"
+      }
+    },
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "enzyme.js"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/enzyme.js",
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "text-summary"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/mocks.js",
+      "\\.(css|less)$": "<rootDir>/__mocks__/mocks.js"
+    }
+  }
+}
