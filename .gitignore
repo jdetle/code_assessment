@@ -42,4 +42,4 @@ jspm_packages
 coverage
 package-lock.json
 generated/
-.secrets.json
+*.env
