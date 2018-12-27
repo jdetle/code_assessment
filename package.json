@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/jdetle/code_assessment#readme",
   "devDependencies": {
+    "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.2.3",
     "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
     "@types/next": "^7.0.5",
@@ -58,8 +59,6 @@
     "webpack-bundle-analyzer": "^3.0.3"
   },
   "dependencies": {
-    "btoa": "^1.2.1",
-    "isomorphic-fetch": "^2.2.1",
     "moment": "^2.22.2",
     "nextjs-dynamic-routes": "^2.2.1",
     "react": "^16.7.0-alpha2",

@@ -10,17 +10,12 @@
     statuses
         .created_at
         .id
-        .te
         .user.name
         .url
-        .geo
         .coordinates
         .place
         .retweet_count
         .favorite_count
-        .favorited
-        .retweeted
-        .lang (language)
 
 # Steps in computatio
 1. Ensure that an appropriate access token exists, fetch if invalid

@@ -1,4 +1,16 @@
 {
   "version": 2,
-  "builds": [{ "src": "next.config.js", "use": "@now/next" }]
+  "name": "Buzzwords of IoT",
+  "builds": [
+    { "src": "/static/*", "use": "@now/static" },
+    { "src": "api/aggregateIoT.js", "use": "@now/node" },
+    {
+      "src": "next.config.js",
+      "use": "@now/next"
+    }
+  ],
+  "env": {
+    "CONSUMER_KEY": "@consumer_key",
+    "CONSUMER_SECRET": "@consumer_secret"
+  }
 }
