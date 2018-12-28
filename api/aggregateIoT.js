@@ -83,10 +83,8 @@ module.exports = (request, res) => {
     .then(tweets => {
       const tweetsWithMeaningfulWords = tweets.map(tweet => {
         tweet.meaningfulWords = getMeaningfulWords(tweet.full_text);
-        console.log(tweet.meaningfulWords);
         return tweet;
       });
-
       return Promise.resolve(tweetsWithMeaningfulWords);
     })
     .then(aggregateMeaningfulInformation)
