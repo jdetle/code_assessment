@@ -6,7 +6,7 @@ import T from "../components/typography";
 
 const Title = "#IoT";
 const Explanation =
-  "The Internet of Things is a trending technology domain, with applications that can be found in many areas. We have summarized a breakdown of the top 20 buzzwords that are found in tweets containing the hashtag #IoT.";
+  "The Internet of Things is a trending technology domain with applications that can be found in many areas. We have summarized a breakdown of the top 20 buzzwords that are found in tweets containing the hashtag #IoT.";
 const ClickHere = "Top 20 Buzzwords";
 
 export default function Index() {

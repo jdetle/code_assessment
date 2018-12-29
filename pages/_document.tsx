@@ -14,7 +14,7 @@ export default class MyDocument extends Document<{ styleTags: Object }> {
 
   public render() {
     return (
-      <>
+      <html lang="en">
         <Head>
           {this.props.styleTags}
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -25,7 +25,7 @@ export default class MyDocument extends Document<{ styleTags: Object }> {
           <Main />
           <NextScript />
         </body>
-      </>
+      </html>
     );
   }
 }
