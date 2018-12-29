@@ -4,17 +4,15 @@ import Button from "../components/button";
 import Container from "../components/container";
 import T from "../components/typography";
 
-const Title = "Buzzwords of IoT";
+const Title = "#IoT";
 const Explanation =
-  "The Internet of Things is a trending technology, with applications that can be found in a multitude of areas. We have summarized a breakdown of the top 20 buzzwords that are found in tweets containing the hashtag #IoT.";
-const ClickHere = "Buzzwords of IoT";
+  "The Internet of Things is a trending technology domain, with applications that can be found in many areas. We have summarized a breakdown of the top 20 buzzwords that are found in tweets containing the hashtag #IoT.";
+const ClickHere = "Top 20 Buzzwords";
 
 export default function Index() {
   return (
     <div>
-      <T.h1 aria-label={"Welcome title"} tabIndex={0}>
-        {Title}
-      </T.h1>
+      <div id="background">{Title}</div>
       <T.p
         aria-label={"An explanation for the purpose of the site"}
         tabIndex={0}

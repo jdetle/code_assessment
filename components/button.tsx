@@ -5,13 +5,15 @@ export default styled.a<{ primary?: boolean; xl?: boolean }>`
   align-items: center;
   justify-content: center;
   border-radius: 0.25rem;
-  padding: 0.5rem 0;
+  padding: 0rem 0;
   margin: 0.5rem 1rem;
+  height: 2rem;
   width: 11rem;
   background: transparent;
   color: white;
   border: 0.2rem solid white;
   text-decoration: none;
+  z-index: 1;
   ${props =>
     props.primary &&
     css`
@@ -23,9 +25,12 @@ export default styled.a<{ primary?: boolean; xl?: boolean }>`
     css`
       width: 22rem;
       height: 10rem;
-      font-size: 3.5rem;
+      font-size: 3rem;
       text-align: center;
       font-weight: 900;
       border-radius: 2rem;
+      @media (max-width: 420px) {
+        font-size: 2rem;
+      }
     `}
 `;

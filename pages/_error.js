@@ -5,13 +5,14 @@ import T from "../components/typography";
 export default () => {
   return (
     <>
-      <T.h1>
+      <T.p>
         {
           "Uh oh! It looks like something when wrong, click the button to go back."
         }
-      </T.h1>
+      </T.p>
+
       <Link href="/words_list">
-        <Button primary href="/words_list">
+        <Button primary href="/">
           {"Go home"}
         </Button>
       </Link>

@@ -13,7 +13,6 @@ const Layout = styled.div`
   height: 100%;
   width: 100%;
   display: flex;
-  margin: 1rem;
   flex-direction: column;
   header {
     height: 10%;

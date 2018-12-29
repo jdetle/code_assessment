@@ -5,7 +5,7 @@ export default styled.footer`
   justify-content: flex-end;
   align-items: center;
   align-content: center;
-  margin: 1rem;
+  margin-top: 0rem;
   font-size: 0.5rem;
   padding-right: 2rem;
 `;
