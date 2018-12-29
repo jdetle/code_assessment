@@ -1,3 +1,5 @@
 import styled, { css } from "styled-components";
 
-export default styled.li``;
+export const ol = styled.ol``;
+export const li = styled.li``;
+export default { ol, li };

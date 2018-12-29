@@ -1,6 +1,7 @@
 {
   "version": 2,
   "name": "Buzzwords of IoT",
+  "alias": "buzzwordsofiot.com",
   "builds": [
     { "src": "/static/*", "use": "@now/static" },
     { "src": "api/aggregateIoT.js", "use": "@now/node" },
@@ -9,6 +10,7 @@
       "use": "@now/next"
     }
   ],
+  "routes": [{ "src": "/api/aggregateIoT", "dest": "/api/aggregateIoT.js" }],
   "env": {
     "CONSUMER_KEY": "@consumer_key",
     "CONSUMER_SECRET": "@consumer_secret"
