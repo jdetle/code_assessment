@@ -13,18 +13,21 @@ export default function Index() {
   return (
     <div>
       <div id="background">{Title}</div>
-      <T.p
-        aria-label={"An explanation for the purpose of the site"}
-        tabIndex={0}
-      >
-        {Explanation}
-      </T.p>
-      <Container>
-        <Link href="/words_list">
-          <Button primary xl href="/words_list">
-            {ClickHere}
-          </Button>
-        </Link>
+      <Container center>
+        <Container center halfSize>
+          {" "}
+          <T.p
+            aria-label={"An explanation for the purpose of the site"}
+            tabIndex={0}
+          >
+            {Explanation}
+          </T.p>
+          <Link href="/words_list">
+            <Button primary xl href="/words_list">
+              {ClickHere}
+            </Button>
+          </Link>
+        </Container>
       </Container>
     </div>
   );

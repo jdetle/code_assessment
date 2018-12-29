@@ -18,6 +18,7 @@ export const li = styled.li`
   }
   :hover {
     color: red;
+    cursor: pointer;
   }
   :active {
     color: red;

@@ -14,6 +14,12 @@ export default styled.a<{ primary?: boolean; xl?: boolean }>`
   border: 0.2rem solid white;
   text-decoration: none;
   z-index: 1;
+
+  :hover {
+    cursor: pointer;
+    color: #35e0ff;
+    border: 0.2rem solid #35e0ff;
+  }
   ${props =>
     props.primary &&
     css`
@@ -31,6 +37,8 @@ export default styled.a<{ primary?: boolean; xl?: boolean }>`
       border-radius: 2rem;
       @media (max-width: 420px) {
         font-size: 2rem;
+        height: 6rem;
+        width: 18rem;
       }
     `}
 `;
