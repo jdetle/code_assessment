@@ -12,11 +12,14 @@ const ClickHere = "Top 20 Buzzwords";
 export default function Index() {
   return (
     <div>
-      <div id="background">{Title}</div>
+      <Container center>
+        <div id="background">{Title}</div>
+      </Container>
       <Container center>
         <Container center halfSize>
           {" "}
           <T.p
+            center
             aria-label={"An explanation for the purpose of the site"}
             tabIndex={0}
           >

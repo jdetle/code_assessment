@@ -1,9 +1,14 @@
 import styled, { css } from "styled-components";
 
-const p = styled.p`
+const p = styled.p<{ center?: boolean }>`
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 2rem;
+  ${props =>
+    props.center &&
+    css`
+      text-align: center;
+    `}
 `;
 const span = styled.span``;
 const pre = styled.pre``;

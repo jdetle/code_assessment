@@ -34,17 +34,13 @@ html, body{
   height: 100%;
 }
 #background {
-  position: absolute;
-  top: 30rem;
-  left: 0;
-  bottom: 0;
-  right: 0;
   font-size: 20rem;
   font-weight: 900;
   color: rgba(5,5,5,0.2);
-  align-text: center;
-  padding-left: 5rem;
+  text-align: center;
   z-index: 0;
+  margin-top: 2rem;
+  padding: 0;
   overflow: hidden;
   @media (max-width: 420px) { 
     top: 15rem;
