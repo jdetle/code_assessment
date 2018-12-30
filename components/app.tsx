@@ -4,7 +4,8 @@ import styled, { createGlobalStyle } from "styled-components";
 
 const StyledApp = styled.div`
   height: 100%;
-  background-color: rgb(59, 65, 113, 1);
+  background-color: rgb(59, 65, 113);
+  background-color: rgba(59, 65, 113, 1);
   color: white;
   overflow-x: hidden;
   video,
@@ -34,11 +35,17 @@ html, body{
   height: 100%;
 }
 #index_title {
+
+  -webkit-transition: font-size 1s; /* Safari */
+  transition: font-size 1s;
+  :hover {
+    font-size: 24rem 
+  }
   font-size: 20rem;
   font-weight: 900;
   color: palevioletred;
   text-align: center;
-  z-index: 0;
+  z-index: 1;
   padding: 0;
   overflow: hidden;
   @media (max-width: 420px) { 

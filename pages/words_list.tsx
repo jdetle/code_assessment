@@ -3,8 +3,10 @@ import React from "react";
 import Container from "../components/container";
 import List from "../components/list";
 import Word, { WordProps } from "../components/word";
+import T from "../components/typography";
 interface ListProps {
   words: Array<[string, WordProps]>;
+  totalUniqueWords: number;
 }
 interface ListState {
   selectedWord?: [string, WordProps];
@@ -21,24 +23,37 @@ export class TopTwenty extends React.Component<ListProps, ListState> {
       url = "http://localhost:8004";
     }
     const data = await (await fetch(`${url}/api/aggregateIoT`)).json();
-    return { words: data };
+    return { words: data.topWords, totalUniqueWords: data.totalUniqueWords };
   }
   public state: ListState = {};
+  selectWord = (word: [string, WordProps], index: number) => {
+    this.setState({
+      selectedWord: word,
+      selectedWordIndex: index
+    });
+  };
   public render() {
     const { selectedWord, selectedWordIndex } = this.state;
-    const { words } = this.props;
+    const { words, totalUniqueWords } = this.props;
     if (selectedWord != null && selectedWordIndex != null) {
       return (
         <Word
           word={selectedWord[0]}
           data={selectedWord[1]}
+          totalUniqueWords={this.props.totalUniqueWords}
           wordNumber={selectedWordIndex}
           goBack={() => this.setState({ selectedWord: undefined })}
         />
       );
     } else {
       return (
-        <Container style={{ padding: "2rem" }}>
+        <Container
+          direction={"column"}
+          style={{ height: "98%", padding: "2rem" }}
+        >
+          <T.h3
+            style={{ width: "50%" }}
+          >{`Top words out of ${totalUniqueWords} unique words`}</T.h3>
           <List.ol
             aria-label={"The ordered list of top IoT buzzwords"}
             tabIndex={0}
@@ -48,16 +63,11 @@ export class TopTwenty extends React.Component<ListProps, ListState> {
                 aria-label={`IoT Buzzword List item number ${index}`}
                 tabIndex={0}
                 key={index}
-                onClick={() =>
-                  this.setState({
-                    selectedWord: word,
-                    selectedWordIndex: index
-                  })
-                }
+                onClick={() => this.selectWord(word, index)}
                 onKeyPress={event => {
                   const code = event.keyCode || event.which;
                   if (code == 13) {
-                    this.setState({ selectedWord: word });
+                    this.selectWord(word, index);
                   }
                 }}
               >

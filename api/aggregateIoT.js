@@ -17,10 +17,15 @@ function fetchTweets() {
     count: 100
   });
 }
+fetchTweets()
+  .then(response => Promise.resolve(response.data.statuses))
+  .then(tweets => console.log(tweets));
+
 function aggregateMeaningfulInformation(tweets) {
   const words = {};
   tweets.forEach(tweet => {
     let addedWords = {};
+
     tweet.meaningfulWords.forEach(word => {
       addedWords[word] = true;
       if (words[word] != null) words[word].count++;
@@ -28,31 +33,52 @@ function aggregateMeaningfulInformation(tweets) {
         words[word] = { count: 1 };
       }
     });
+
     Object.keys(addedWords).forEach(word => {
-      if (words[word].retweet_count)
-        words[word].retweet_count += tweet.retweet_count;
+      if (words[word].retweetCount)
+        words[word].retweetCount += tweet.retweet_count;
       else {
-        words[word].retweet_count = tweet.retweet_count;
+        words[word].retweetCount = tweet.retweet_count;
       }
-      if (words[word].favorite_count)
-        words[word].favorite_count += tweet.favorite_count;
+      if (words[word].favoriteCount)
+        words[word].favoriteCount += tweet.favorite_count;
       else {
-        words[word].favorite_count = tweet.favorite_count;
+        words[word].favoriteCount = tweet.favorite_count;
       }
-      if (words[word].tweets) words[word].tweets.push(tweet.full_text);
-      else {
-        words[word].tweets = [tweet.full_text];
+      if (words[word].tweets) {
+        words[word].tweets.push({
+          fullText: tweet.full_text,
+          id: tweet.id_str
+        });
+      } else {
+        words[word].tweets = [
+          {
+            fullText: tweet.full_text,
+            id: tweet.id_str
+          }
+        ];
+        // words[word].tweetData = [tweet];
       }
-      if (words[word].tweets_with_word) words[word].tweets_with_word += 1;
+      if (words[word].tweetsWithWord) words[word].tweetsWithWord += 1;
       else {
-        words[word].tweets_with_word = 1;
+        words[word].tweetsWithWord = 1;
       }
     });
   });
-  let topWords = Object.entries(words)
-    .sort((a, b) => b[1].count - a[1].count)
-    .slice(0, 20);
-  return Promise.resolve(topWords);
+
+  const sortedWords = Object.entries(words).sort(
+    (a, b) => b[1].count - a[1].count
+  );
+
+  let topWords = sortedWords.slice(0, 20);
+  topWords = topWords.map(word => {
+    return word;
+  });
+  const data = {
+    topWords: topWords,
+    totalUniqueWords: sortedWords.length
+  };
+  return Promise.resolve(data);
 }
 function filterPunctuation(word) {
   if (word != null) word = word.replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ");
@@ -60,7 +86,8 @@ function filterPunctuation(word) {
 }
 function getMeaningfulWords(text) {
   const words = text.trim().split(/\s+/g);
-  const meaningful_words = words
+  const numWords = words.length;
+  const meaningfulWords = words
     .map(word => {
       word = word.toLowerCase();
       DROPPED_SYMBOLS.forEach(element => {
@@ -75,20 +102,25 @@ function getMeaningfulWords(text) {
       return filterPunctuation(word);
     })
     .filter(word => word != null && word != "" && word != "iot");
-  return meaningful_words;
+  return { meaningfulWords, numWords };
 }
 module.exports = (request, res) => {
   fetchTweets()
     .then(response => Promise.resolve(response.data.statuses))
     .then(tweets => {
       const tweetsWithMeaningfulWords = tweets.map(tweet => {
-        tweet.meaningfulWords = getMeaningfulWords(tweet.full_text);
+        const { meaningfulWords, numWords } = getMeaningfulWords(
+          tweet.full_text
+        );
+        tweet.meaningfulWords = meaningfulWords;
+        tweet.numWords = numWords;
+        tweet.ratioMeaninfulWords = meaningfulWords.length / numWords;
         return tweet;
       });
       return Promise.resolve(tweetsWithMeaningfulWords);
     })
     .then(aggregateMeaningfulInformation)
-    .then(topWords => {
-      res.end(JSON.stringify(topWords));
+    .then(data => {
+      res.end(JSON.stringify(data));
     });
 };

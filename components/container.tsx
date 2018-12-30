@@ -5,11 +5,16 @@ export default styled.div<{
   halfSize?: boolean;
   right?: boolean;
   outline?: boolean;
+  direction: "row" | "column";
 }>`
   display: flex;
   width: 100%;
-  height: 100%;
-  flex-direction: column;
+  flex-direction: ${props => props.direction};
+  ${props =>
+    props.left &&
+    css`
+      justify-content: flex-start;
+    `}
   ${props =>
     props.center &&
     css`

@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import StyledFooter from "./footer";
 import StyledHeader from "./header";
-
+import T from "./typography";
 import Head from "next/head";
 import Link from "next/link";
 
 const StyledChildren = styled.div`
-  margin: 2rem;
+  margin: 4.5rem;
 `;
 const Layout = styled.div`
   flex: 1 1 10rem;
@@ -23,15 +23,7 @@ const Layout = styled.div`
   nav {
     font-size: 2rem;
     font-weight: 500;
-    a {
-      text-decoration: none;
-      :hover,
-      active,
-      :focus {
-        cursor: pointer;
-        color: red;
-      }
-    }
+
     @media (max-width: 420px) {
       font-size: 1rem;
     }
@@ -60,21 +52,21 @@ export default ({ children, title = "Buzzwords Of IoT" }) => (
     >
       <nav role="navigation">
         <Link href="/">
-          <a aria-label={"Link to the home page"} tabIndex={0}>
+          <T.a aria-label={"Link to the home page"} tabIndex={0}>
             Home
-          </a>
+          </T.a>
         </Link>
         <span>{" // "}</span>
         <Link href="/words_list">
-          <a aria-label={"Link to the buzzword page"} tabIndex={0}>
+          <T.a aria-label={"Link to the buzzword page"} tabIndex={0}>
             Buzzwords
-          </a>
+          </T.a>
         </Link>
         <span>{" // "}</span>
         <Link href="/about">
-          <a aria-label={"Link to the about button"} tabIndex={0}>
+          <T.a aria-label={"Link to the about button"} tabIndex={0}>
             About
-          </a>
+          </T.a>
         </Link>
       </nav>
     </StyledHeader>
