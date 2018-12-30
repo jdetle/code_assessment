@@ -4,11 +4,13 @@ export default styled.div<{
   left?: boolean;
   halfSize?: boolean;
   right?: boolean;
+  outline?: boolean;
 }>`
   display: flex;
   width: 100%;
   height: 100%;
   flex-direction: column;
+  padding: 1rem;
   ${props =>
     props.center &&
     css`
@@ -25,4 +27,11 @@ export default styled.div<{
         width: 95%;
       }
     `}
+    ${props =>
+      props.outline &&
+      css`
+        border: 0.2rem solid white;
+        border-radius: 0.75rem;
+        padding: 2rem;
+      `}
 `;

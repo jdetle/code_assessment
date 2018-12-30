@@ -39,13 +39,11 @@ html, body{
   color: palevioletred;
   text-align: center;
   z-index: 0;
-  margin-top: 2rem;
   padding: 0;
   overflow: hidden;
   @media (max-width: 420px) { 
     font-size: 4rem;
     top: 15rem;
-    left: -10rem;
   }
 }
 `;

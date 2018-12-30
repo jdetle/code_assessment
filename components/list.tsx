@@ -6,6 +6,11 @@ export const ol = styled.ol`
   padding: 0;
   height: 100%;
 `;
+export const ul = styled.ul`
+  overflow: hidden;
+  overflow-y: scroll;
+  height: 100%;
+`;
 export const li = styled.li`
   margin-bottom: 0.4rem;
   font-size: 3rem;
@@ -20,4 +25,4 @@ export const li = styled.li`
     cursor: pointer;
   }
 `;
-export default { ol, li };
+export default { ol, ul, li };
