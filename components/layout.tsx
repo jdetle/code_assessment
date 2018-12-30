@@ -15,6 +15,8 @@ const Layout = styled.div`
   display: flex;
   flex-direction: column;
   header {
+    position: fixed;
+    top: 0;
     height: 10%;
     width: 100%;
   }
@@ -35,6 +37,9 @@ const Layout = styled.div`
     }
   }
   footer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
     height: 10%;
     flex: 0 1 2rem;
   }
