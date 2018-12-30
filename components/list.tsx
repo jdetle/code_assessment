@@ -18,7 +18,6 @@ export const li = styled.li`
   :focus {
     color: red;
     cursor: pointer;
-    font-size: 4rem;
   }
 `;
 export default { ol, li };
