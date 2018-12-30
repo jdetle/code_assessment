@@ -20,6 +20,7 @@ const Layout = styled.div`
   }
   nav {
     font-size: 2rem;
+    font-weight: 500;
     a {
       text-decoration: none;
       :hover,

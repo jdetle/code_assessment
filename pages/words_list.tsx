@@ -8,6 +8,7 @@ interface ListProps {
 }
 interface ListState {
   selectedWord?: [string, WordProps];
+  selectedWordIndex?: number;
 }
 
 export class TopTwenty extends React.Component<ListProps, ListState> {
@@ -24,19 +25,20 @@ export class TopTwenty extends React.Component<ListProps, ListState> {
   }
   public state: ListState = {};
   public render() {
-    const { selectedWord } = this.state;
+    const { selectedWord, selectedWordIndex } = this.state;
     const { words } = this.props;
-    if (selectedWord != null) {
+    if (selectedWord != null && selectedWordIndex != null) {
       return (
         <Word
           word={selectedWord[0]}
           data={selectedWord[1]}
+          wordNumber={selectedWordIndex}
           goBack={() => this.setState({ selectedWord: undefined })}
         />
       );
     } else {
       return (
-        <Container>
+        <Container style={{ padding: "2rem" }}>
           <List.ol
             aria-label={"The ordered list of top IoT buzzwords"}
             tabIndex={0}
@@ -46,7 +48,12 @@ export class TopTwenty extends React.Component<ListProps, ListState> {
                 aria-label={`IoT Buzzword List item number ${index}`}
                 tabIndex={0}
                 key={index}
-                onClick={() => this.setState({ selectedWord: word })}
+                onClick={() =>
+                  this.setState({
+                    selectedWord: word,
+                    selectedWordIndex: index
+                  })
+                }
                 onKeyPress={event => {
                   const code = event.keyCode || event.which;
                   if (code == 13) {

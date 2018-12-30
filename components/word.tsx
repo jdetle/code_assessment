@@ -11,6 +11,7 @@ export interface WordProps {
 }
 export default (props: {
   word: string;
+  wordNumber: number;
   data: WordProps;
   goBack: () => void;
 }) => {
@@ -23,6 +24,7 @@ export default (props: {
       >
         {props.word}
       </T.h1>
+      <T.p>{`(buzzword no. ${props.wordNumber + 1})`}</T.p>
       <Container halfSize left outline style={{ margin: "2rem" }}>
         <T.h5
           aria-label={"Title for stats across sampled tweets"}
