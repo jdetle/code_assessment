@@ -17,7 +17,24 @@ const Layout = styled.div`
   header {
     height: 10%;
     width: 100%;
-    flex: 0 1 2rem;
+  }
+  nav {
+    font-size: 2rem;
+    a {
+      text-decoration: none;
+      :hover,
+      active,
+      :focus {
+        cursor: pointer;
+        color: red;
+      }
+    }
+    span {
+      color: red;
+    }
+    @media (max-width: 420px) {
+      font-size: 1rem;
+    }
   }
   footer {
     height: 10%;
@@ -43,12 +60,14 @@ export default ({ children, title = "Buzzwords Of IoT" }) => (
           <a aria-label={"Link to the home page"} tabIndex={0}>
             Home
           </a>
-        </Link>{" "}
+        </Link>
+        <span>{" // "}</span>
         <Link href="/words_list">
           <a aria-label={"Link to the buzzword page"} tabIndex={0}>
             Buzzwords
           </a>
-        </Link>{" "}
+        </Link>
+        <span>{" // "}</span>
         <Link href="/about">
           <a aria-label={"Link to the about button"} tabIndex={0}>
             About
