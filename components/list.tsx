@@ -4,10 +4,7 @@ export const ol = styled.ol`
   overflow: hidden;
   overflow-y: scroll;
   padding: 0;
-  height: 50rem;
-  @media (max-width: 420px) {
-    height: 30rem;
-  }
+  height: 100%;
 `;
 export const li = styled.li`
   margin-bottom: 0.4rem;
@@ -16,15 +13,12 @@ export const li = styled.li`
   @media (max-width: 420px) {
     font-size: 2rem;
   }
-  :hover {
-    color: red;
-    cursor: pointer;
-  }
-  :active {
-    color: red;
-  }
+  :hover,
+  :active,
   :focus {
     color: red;
+    cursor: pointer;
+    font-size: 4rem;
   }
 `;
 export default { ol, li };

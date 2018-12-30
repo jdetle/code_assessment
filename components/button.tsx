@@ -7,13 +7,20 @@ export default styled.a<{ primary?: boolean; xl?: boolean }>`
   border-radius: 0.25rem;
   padding: 0rem 0;
   margin: 0.5rem 1rem;
-  height: 2rem;
+  height: 4rem;
+  font-size: 2rem;
+  font-weight: 600;
   width: 11rem;
   background: transparent;
   color: white;
   border: 0.2rem solid white;
   text-decoration: none;
   z-index: 1;
+
+  @media (max-width: 420px) {
+    font-size: 1rem;
+    height: 2rem;
+  }
 
   :hover {
     cursor: pointer;
