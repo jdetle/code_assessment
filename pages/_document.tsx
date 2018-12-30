@@ -20,6 +20,7 @@ export default class MyDocument extends Document<{ styleTags: Object }> {
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width,initial-scale=1" />
+          <link rel="icon" type="image/x-icon" href="./static/favicon.ico" />
           <meta
             name="Description"
             content="A summary of the top 20 words in the internet of things."

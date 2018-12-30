@@ -17,9 +17,6 @@ function fetchTweets() {
     count: 100
   });
 }
-fetchTweets()
-  .then(response => Promise.resolve(response.data.statuses))
-  .then(tweets => console.log(tweets));
 
 function aggregateMeaningfulInformation(tweets) {
   const words = {};
