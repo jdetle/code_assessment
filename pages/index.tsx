@@ -13,7 +13,9 @@ export default function Index() {
   return (
     <div>
       <Container center>
-        <div id="background">{Title}</div>
+        <div id="index_title" role="banner">
+          {Title}
+        </div>
       </Container>
       <Container center>
         <Container center halfSize>

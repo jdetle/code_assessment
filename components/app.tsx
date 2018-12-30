@@ -33,10 +33,10 @@ html, body{
 #__next {
   height: 100%;
 }
-#background {
+#index_title {
   font-size: 20rem;
   font-weight: 900;
-  color: rgba(5,5,5,0.2);
+  color: palevioletred;
   text-align: center;
   z-index: 0;
   margin-top: 2rem;

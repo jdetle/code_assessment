@@ -11,8 +11,7 @@ router.add({
   pattern: "/words_list"
 });
 router.add({
-  name: "word",
-  pattern: "/words_list/:word"
+  name: "about",
+  pattern: "/about"
 });
-
 module.exports = router;

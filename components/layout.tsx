@@ -29,9 +29,6 @@ const Layout = styled.div`
         color: red;
       }
     }
-    span {
-      color: red;
-    }
     @media (max-width: 420px) {
       font-size: 1rem;
     }
@@ -55,7 +52,7 @@ export default ({ children, title = "Buzzwords Of IoT" }) => (
       aria-label="Header containing links to Home, buzzwords, and about page"
       tabIndex={0}
     >
-      <nav>
+      <nav role="navigation">
         <Link href="/">
           <a aria-label={"Link to the home page"} tabIndex={0}>
             Home
@@ -76,6 +73,8 @@ export default ({ children, title = "Buzzwords Of IoT" }) => (
       </nav>
     </StyledHeader>
     <StyledChildren>{children}</StyledChildren>
-    <StyledFooter>{"All rights reserved: John Detlefs 2018"}</StyledFooter>
+    <StyledFooter role="contentinfo">
+      {"All rights reserved: John Detlefs 2018"}
+    </StyledFooter>
   </Layout>
 );
