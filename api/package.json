@@ -1,0 +1,14 @@
+{
+  "name": "api-lambdas",
+  "version": "1.0.0",
+  "description": "Serverless api functions",
+  "main": "aggregateIoT.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "John Detlefs",
+  "license": "MIT",
+  "dependencies": {
+    "twit": "^2.2.11"
+  }
+}

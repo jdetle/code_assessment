@@ -63,7 +63,6 @@
     "webpack-bundle-analyzer": "^3.0.3"
   },
   "dependencies": {
-    "twit": "^2.2.11",
     "nextjs-dynamic-routes": "^2.2.1",
     "react": "^16.7.0-alpha2",
     "react-dom": "^16.7.0-alpha2",

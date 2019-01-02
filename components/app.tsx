@@ -39,7 +39,7 @@ html, body{
   -webkit-transition: font-size 1s; /* Safari */
   transition: font-size 1s;
   :hover, :active, :focus {
-    font-size: 24rem 
+    font-size: 22rem 
   }
   font-size: 20rem;
   font-weight: 900;
@@ -49,10 +49,10 @@ html, body{
   padding: 0;
   overflow: hidden;
   @media (max-width: 420px) { 
-    font-size: 4rem;
+    font-size: 7rem;
     margin-top: 4rem;
     :hover, :active, :focus {
-      font-size: 4rem;
+      font-size: 7rem 
     }
   }
 }
