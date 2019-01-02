@@ -1,14 +1,28 @@
 import styled, { css } from "styled-components";
 
-const p = styled.p<{ center?: boolean }>`
+const p = styled.p<{ center?: boolean; xl?: boolean }>`
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 2rem;
+  ${props =>
+    props.xl &&
+    css`
+      font-size: 2.2rem;
+      line-height: 2.2rem;
+    `}
   margin: 2rem;
   @media (max-width: 420px) {
     font-size: 0.8rem;
     line-height: 1rem;
     margin: 0rem;
+    ${props =>
+      props.xl &&
+      css`
+        font-size: 1.8rem;
+        line-height: 1.8rem;
+        margin-bottom: 1rem;
+        padding: 0.2rem;
+      `}
   }
   ${props =>
     props.center &&

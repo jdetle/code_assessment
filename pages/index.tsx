@@ -21,6 +21,7 @@ export default function Index() {
           {" "}
           <T.p
             center
+            xl
             aria-label={"An explanation for the purpose of the site"}
             tabIndex={0}
           >
