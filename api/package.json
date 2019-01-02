@@ -1,0 +1,18 @@
+{
+  "name": "bwiot_api",
+  "version": "1.0.0",
+  "description": "api",
+  "main": "aggregateIoT.js",
+  "scripts": {
+    "dev": "now-lambda",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "now-lambda-runner": "^2.0.0"
+  },
+  "dependencies": {
+    "twit": "^2.2.11"
+  }
+}
