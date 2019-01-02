@@ -13,8 +13,7 @@
     "build:server": "cp ./server.ts .next/server.ts && cp ./routes.ts .next/routes.ts && cp -r static .next/static",
     "start": "cross-env NODE_ENV=production node server.ts -p $PORT",
     "test": "jest",
-    "tslint": "./node_modules/.bin/tslint -c tslint.json -p tsconfig.json",
-    "precommit": "lint-staged"
+    "tslint": "./node_modules/.bin/tslint -c tslint.json -p tsconfig.json"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -101,6 +100,11 @@
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/mocks.js",
       "\\.(css|less)$": "<rootDir>/__mocks__/mocks.js"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
     }
   }
 }
