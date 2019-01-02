@@ -49,11 +49,9 @@ export class TopTwenty extends React.Component<ListProps, ListState> {
       return (
         <Container
           direction={"column"}
-          style={{ height: "98%", padding: "2rem" }}
+          style={{ height: "95%", padding: "4rem 2rem 0rem 2rem" }}
         >
-          <T.h3
-            style={{ width: "50%" }}
-          >{`Top words out of ${totalUniqueWords} unique words`}</T.h3>
+          <T.h3>{`Top Words Out Of ${totalUniqueWords} Unique Words`}</T.h3>
           <List.ol
             aria-label={"The ordered list of top IoT buzzwords"}
             tabIndex={0}

@@ -5,6 +5,11 @@ const p = styled.p<{ center?: boolean }>`
   font-weight: 700;
   line-height: 2rem;
   margin: 2rem;
+  @media (max-width: 420px) {
+    font-size: 0.8rem;
+    line-height: 1rem;
+    margin: 0rem;
+  }
   ${props =>
     props.center &&
     css`
@@ -24,58 +29,64 @@ const span = styled.span`
   display: inline-block;
 `;
 const pre = styled.pre``;
-const h1 = styled.h1`
-  margin: 0;
-  font-size: 5.5rem;
-  font-weight: 900;
-  line-height: 5rem;
-  @media (max-width: 420px) {
-    font-size: 2rem;
-  }
-`;
-const h2 = styled.h2`
+const h1 = styled.h1<{ width?: string }>`
   margin: 0;
   font-size: 5rem;
   font-weight: 900;
   line-height: 5rem;
   @media (max-width: 420px) {
-    font-size: 1.9rem;
+    font-size: 2rem;
+    line-height: 2rem;
   }
 `;
-const h3 = styled.h3`
+const h2 = styled.h2<{ width?: string }>`
   margin: 0;
   font-size: 4.5rem;
   font-weight: 900;
-  line-height: 5rem;
+  line-height: 4.5rem;
   @media (max-width: 420px) {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
+    line-height: 1.9rem;
   }
 `;
-const h4 = styled.h4`
+const h3 = styled.h3<{ width?: string }>`
   margin: 0;
   font-size: 4rem;
   font-weight: 900;
-  line-height: 5rem;
+  line-height: 4rem;
   @media (max-width: 420px) {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
+    line-height: 1.8rem;
   }
 `;
-const h5 = styled.h5`
+const h4 = styled.h4<{ width?: string }>`
+  margin: 0;
+  font-size: 3.8rem;
+  font-weight: 900;
+  line-height: 3.8rem;
+  @media (max-width: 420px) {
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+  }
+`;
+const h5 = styled.h5<{ width?: string }>`
   margin: 0;
   font-size: 3.5rem;
   font-weight: 800;
-  line-height: 5rem;
+  line-height: 3.5rem;
   @media (max-width: 420px) {
     font-size: 1.55rem;
+    line-height: 1.55rem;
   }
 `;
 const h6 = styled.h6`
   margin: 0;
   font-size: 3rem;
   font-weight: 700;
-  line-height: 5rem;
+  line-height: 3rem;
   @media (max-width: 420px) {
     font-size: 1.45rem;
+    line-height: 1.45rem;
   }
 `;
 

@@ -18,27 +18,30 @@ export default (props: {
   data: WordProps;
   goBack: () => void;
 }) => {
-  console.log(props.data.tweetData);
   return (
-    <>
-      <T.h1
-        style={{ margin: "0rem 2rem 3rem 2rem" }}
-        aria-label="Header for individual word"
-        tabIndex={0}
-      >
+    <Container direction={"column"} style={{ padding: "4rem 2rem 0rem 2rem" }}>
+      <T.h1 style={{}} aria-label="Header for individual word" tabIndex={0}>
         {props.word}
       </T.h1>
       <T.p
-        style={{ margin: "0rem 0rem 0rem 2rem" }}
+        style={{ margin: "0.3rem 0.3rem 0rem 2rem" }}
       >{`buzzword no. ${props.wordNumber + 1} of ${
         props.totalUniqueWords
       } unique words`}</T.p>
-      <Container style={{ height: "80%" }} direction={"row"}>
+      <Container
+        direction={"row"}
+        style={{
+          justifyContent: "space-between",
+          flexWrap: "wrap"
+        }}
+      >
         <Container
-          style={{ height: "80%", width: "45%", margin: "2rem" }}
+          style={{ height: "30rem", marginBottom: "1rem" }}
           direction={"column"}
+          halfSize
           left
           outline
+          center
         >
           <T.h5
             aria-label={"Title for stats across sampled tweets"}
@@ -63,18 +66,28 @@ export default (props: {
           </List.ul>
         </Container>
         <Container
-          style={{ height: "80%", width: "45%", margin: "2rem" }}
+          style={{ height: "30rem", marginBottom: "1rem" }}
           direction={"column"}
+          halfSize
+          left
           outline
+          center
         >
           <T.h5
             aria-label={"Title for stats across sampled tweets"}
             tabIndex={0}
-            style={{ textDecoration: "underline", marginBottom: "2rem" }}
+            style={{ textDecoration: "underline", width: "100%" }}
           >
-            {`Tweets featuring: ${props.word}`}
+            {`Relevant Tweets`}
           </T.h5>
-          <List.ul tabIndex={0} style={{ listStyle: "none" }}>
+          <List.ul
+            tabIndex={0}
+            style={{
+              listStyle: "none",
+              padding: "0rem 0rem 0rem 0.5rem",
+              width: "100%"
+            }}
+          >
             {props.data.tweets.map((tweet, index) => (
               <List.li key={index} tabIndex={0}>
                 <a href={`https://twitter.com/statuses/${tweet.id}`}>
@@ -89,6 +102,7 @@ export default (props: {
         aria-label="Button to go back to words list"
         tabIndex={0}
         onClick={() => props.goBack()}
+        style={{ marginLeft: "2rem" }}
         onKeyPress={event => {
           const code = event.keyCode || event.which;
           if (code == 13) {
@@ -96,8 +110,8 @@ export default (props: {
           }
         }}
       >
-        Go back
+        {"Go Back"}
       </Button>
-    </>
+    </Container>
   );
 };

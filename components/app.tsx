@@ -38,7 +38,7 @@ html, body{
 
   -webkit-transition: font-size 1s; /* Safari */
   transition: font-size 1s;
-  :hover {
+  :hover, :active, :focus {
     font-size: 24rem 
   }
   font-size: 20rem;
@@ -50,7 +50,10 @@ html, body{
   overflow: hidden;
   @media (max-width: 420px) { 
     font-size: 4rem;
-    top: 15rem;
+    margin-top: 4rem;
+    :hover, :active, :focus {
+      font-size: 4rem;
+    }
   }
 }
 `;

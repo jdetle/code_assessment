@@ -5,9 +5,6 @@ import T from "./typography";
 import Head from "next/head";
 import Link from "next/link";
 
-const StyledChildren = styled.div`
-  margin: 4.5rem;
-`;
 const Layout = styled.div`
   flex: 1 1 10rem;
   height: 100%;
@@ -34,10 +31,6 @@ const Layout = styled.div`
     bottom: 0;
     height: 10%;
     flex: 0 1 2rem;
-  }
-  ${StyledChildren} {
-    height: 80%;
-    flex: 1 1 2rem;
   }
 `;
 
@@ -70,7 +63,7 @@ export default ({ children, title = "Buzzwords Of IoT" }) => (
         </Link>
       </nav>
     </StyledHeader>
-    <StyledChildren>{children}</StyledChildren>
+    <div style={{ height: "100%" }}>{children}</div>
     <StyledFooter role="contentinfo">
       {"All rights reserved: John Detlefs 2018"}
     </StyledFooter>

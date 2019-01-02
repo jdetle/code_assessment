@@ -5,11 +5,20 @@ export default styled.div<{
   halfSize?: boolean;
   right?: boolean;
   outline?: boolean;
+  wrap?: "wrap";
+  width?: string;
   direction: "row" | "column";
 }>`
   display: flex;
   width: 100%;
   flex-direction: ${props => props.direction};
+  flex-wrap: ${props => props.wrap};
+  margin: 0.2rem;
+  ${props =>
+    props.width &&
+    css`
+      width: ${props.width};
+    `}
   ${props =>
     props.left &&
     css`
@@ -25,10 +34,10 @@ export default styled.div<{
   ${props =>
     props.halfSize &&
     css`
-      width: 50%;
       height: 100%;
+      width: 45%;
       @media (max-width: 420px) {
-        width: 95%;
+        width: 100%;
       }
     `}
     ${props =>

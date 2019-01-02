@@ -16,10 +16,9 @@ export default styled.a<{ primary?: boolean; xl?: boolean }>`
   border: 0.2rem solid white;
   text-decoration: none;
   z-index: 1;
-
   @media (max-width: 420px) {
     font-size: 1rem;
-    height: 2rem;
+    height: 4rem;
   }
 
   :hover {

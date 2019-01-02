@@ -5,6 +5,9 @@ export const ol = styled.ol`
   margin-left: 0.5rem;
   list-style-position: inside;
   height: 100%;
+  @media (max-width: 420px) {
+    padding: 0.5rem;
+  }
 `;
 export const ul = styled.ul`
   overflow: hidden;
@@ -13,7 +16,7 @@ export const ul = styled.ul`
   li {
     font-size: 2rem;
     @media (max-width: 420px) {
-      font-size: 1.5rem;
+      font-size: 1.1rem;
     }
   }
 `;
@@ -31,7 +34,7 @@ export const li = styled.li`
   }
 
   @media (max-width: 420px) {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   :hover,
   :active,

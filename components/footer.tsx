@@ -7,4 +7,7 @@ export default styled.footer`
   align-content: center;
   font-size: 0.5rem;
   padding-right: 2rem;
+  @media (max-width: 420px) {
+    display: none;
+  }
 `;
