@@ -36,7 +36,7 @@ export default (props: {
         }}
       >
         <Container
-          style={{ height: "30rem", marginBottom: "1rem" }}
+          style={{ height: "30rem", minWidth: "30rem", marginBottom: "1rem" }}
           direction={"column"}
           halfSize
           left
@@ -66,7 +66,7 @@ export default (props: {
           </List.ul>
         </Container>
         <Container
-          style={{ height: "30rem", marginBottom: "1rem" }}
+          style={{ height: "30rem", minWidth: "30rem", marginBottom: "1rem" }}
           direction={"column"}
           halfSize
           left
