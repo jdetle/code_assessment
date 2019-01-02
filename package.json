@@ -4,6 +4,7 @@
   "description": "Code assesment for meshify",
   "main": "index.ts",
   "scripts": {
+    "api": "now-lambda",
     "clean": "rimraf .next",
     "analyze": "cross-env ANALYZE=all npm run build",
     "dev": "next",
@@ -49,6 +50,7 @@
     "jest": "^23.6.0",
     "lint-staged": "^8.1.0",
     "next": "^7.0.2",
+    "now-lambda-runner": "^2.0.0",
     "polished": "^2.3.1",
     "prettier": "^1.15.3",
     "rimraf": "^2.6.2",
@@ -61,6 +63,7 @@
     "webpack-bundle-analyzer": "^3.0.3"
   },
   "dependencies": {
+    "twit": "^2.2.11",
     "nextjs-dynamic-routes": "^2.2.1",
     "react": "^16.7.0-alpha2",
     "react-dom": "^16.7.0-alpha2",

@@ -1,8 +1,16 @@
+import styled from "styled-components";
 import Button from "./button";
 import T from "./typography";
 import Container from "./container";
 import List from "./list";
 import Tweet from "./tweet";
+
+const FactBox = styled(Container)`
+  min-width: 30rem;
+  @media (max-width: 420px) {
+    min-width: 0rem;
+  }
+`;
 export interface WordProps {
   count: number;
   retweetCount: number;
@@ -35,8 +43,8 @@ export default (props: {
           flexWrap: "wrap"
         }}
       >
-        <Container
-          style={{ height: "30rem", minWidth: "30rem", marginBottom: "1rem" }}
+        <FactBox
+          style={{ height: "30rem", marginBottom: "1rem" }}
           direction={"column"}
           halfSize
           left
@@ -64,9 +72,9 @@ export default (props: {
               props.data.tweetsWithWord
             }`}</List.li>
           </List.ul>
-        </Container>
-        <Container
-          style={{ height: "30rem", minWidth: "30rem", marginBottom: "1rem" }}
+        </FactBox>
+        <FactBox
+          style={{ height: "30rem", marginBottom: "1rem" }}
           direction={"column"}
           halfSize
           left
@@ -96,7 +104,7 @@ export default (props: {
               </List.li>
             ))}
           </List.ul>
-        </Container>
+        </FactBox>
       </Container>
       <Button
         aria-label="Button to go back to words list"
