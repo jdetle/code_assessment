@@ -4,13 +4,13 @@ const p = styled.p<{ center?: boolean; xl?: boolean }>`
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 2rem;
+  margin: 1rem;
   ${props =>
     props.xl &&
     css`
       font-size: 2.2rem;
       line-height: 2.2rem;
     `}
-  margin: 2rem;
   @media (max-width: 420px) {
     font-size: 0.8rem;
     line-height: 1rem;
