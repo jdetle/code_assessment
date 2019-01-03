@@ -55,12 +55,14 @@ export default ({ children, title = "Buzzwords Of IoT" }) => (
             Buzzwords
           </T.a>
         </Link>
+        {/*
         <span>{" // "}</span>
         <Link href="/about">
           <T.a aria-label={"Link to the about button"} tabIndex={0}>
             About
           </T.a>
         </Link>
+        */}
       </nav>
     </StyledHeader>
     <div style={{ height: "100%" }}>{children}</div>

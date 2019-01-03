@@ -18,9 +18,9 @@ const p = styled.p<{ center?: boolean; xl?: boolean }>`
     ${props =>
       props.xl &&
       css`
-        font-size: 1.8rem;
-        line-height: 1.8rem;
-        margin-bottom: 1rem;
+        font-size: 1.6rem;
+        line-height: 1.6rem;
+        margin-bottom: 0.8rem;
         padding: 0.2rem;
       `}
   }

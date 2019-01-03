@@ -4,7 +4,7 @@
   "alias": "buzzwordsofiot.com",
   "builds": [
     { "src": "/static/*", "use": "@now/static" },
-    { "src": "api/*.js", "use": "@now/node" },
+    { "src": "api/aggregateV2.js", "use": "@now/node" },
     {
       "src": "next.config.js",
       "use": "@now/next"

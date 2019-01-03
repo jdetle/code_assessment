@@ -32,16 +32,16 @@ html, body{
   height: 100%;
 }
 #__next {
-  height: 100%;
+  height: 100%
 }
 #index_title {
 
   -webkit-transition: font-size 1s; /* Safari */
   transition: font-size 1s;
   :hover, :active, :focus {
-    font-size: 22rem 
+    font-size: 19rem 
   }
-  font-size: 20rem;
+  font-size: 18rem;
   font-weight: 900;
   color: palevioletred;
   text-align: center;
