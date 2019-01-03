@@ -15,9 +15,6 @@ const StyledApp = styled.div`
   }
 `;
 
-/**
- * Reset our styles
- */
 const GlobalStyles = createGlobalStyle`
 ${normalize()};
 *{

@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+
 export default styled.a<{ primary?: boolean; xl?: boolean }>`
   display: flex;
   align-content: center;

@@ -19,6 +19,7 @@ export interface WordProps {
   tweetData: Object;
   tweetsWithWord: number;
 }
+
 export default (props: {
   word: string;
   totalUniqueWords: number;

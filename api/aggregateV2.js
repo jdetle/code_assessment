@@ -1,24 +1,15 @@
-const Twit = require("twit");
 const { STOP_WORDS, DROPPED_SYMBOLS, DROPPED_REGEXES } = require("./constants");
-
-function fetchTweets() {
-  const { CONSUMER_KEY, CONSUMER_SECRET } = process.env;
-  const T = new Twit({
-    consumer_key: CONSUMER_KEY,
-    consumer_secret: CONSUMER_SECRET,
-    app_only_auth: true,
-    timeout_ms: 60 * 1000,
-    strictSSL: true
-  });
-  return T.get("search/tweets", {
-    q: "#IoT since:2011-07-11 exclude:replies exclude:retweets",
-    lang: "en",
-    tweet_mode: "extended",
-    count: 100
-  });
-}
+const { filterPunctuation, replaceBetween, fetchTweets } = require("./utils");
 
 function aggregateMeaningfulInformation(tweets) {
+  /**
+   * Increments the aggregated count for every time the word occurs in that tweet.
+   * For each tweet, adds the tweet-level data to each unique word that appears.
+   *
+   * @param tweets : Array<Object> - Twitter Statuses Response, the 100 tweets returned by API
+   * with attached meaningful word list.
+   * @return { topWords, totalUniqueWords } : - Top 20 words and total number of unique words.
+   */
   const words = {};
   tweets.forEach(tweet => {
     let addedWords = {};
@@ -69,19 +60,13 @@ function aggregateMeaningfulInformation(tweets) {
   };
   return Promise.resolve(data);
 }
-function filterPunctuation(word) {
-  if (word != null) word = word.replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ");
-  return word;
-}
-function replaceBetween(str, start, stop) {
-  let diff = stop - start;
-  let spaces = "";
-  for (var i = 0; i < diff; i++) {
-    spaces += " ";
-  }
-  return str.substring(0, start) + spaces + str.substring(stop);
-}
+
 function filterEntities(tweet) {
+  /**
+   * Return tweet full_text without hashtags, symsbols, user mentions or urls, as they cannot be pertinent words.
+   * @param tweet : <Object> - Twitter Status Response item, one of 100 tweets returned by API
+   * @return text : string - Filtered text containing whitespace where entities once were.
+   */
   const { hashtags, symbols, user_mentions, urls } = tweet.entities;
   let text = tweet.full_text;
   hashtags.forEach(
@@ -99,11 +84,18 @@ function filterEntities(tweet) {
   urls.forEach(
     url => (text = replaceBetween(text, url.indices[0], url.indices[1] + 1))
   );
+
   return text;
 }
+
 function getMeaningfulWords(text) {
+  /**
+   * Drop insignificant words by filtering out common stopwords and symbols.
+   *
+   * @param text : string - Entity-filtered tweet containing potential stop words, symbols, and unique words.
+   * @return { meaningfulWords, numWords } - Non-stop words, and the total number of words in the tweet.
+   */
   const words = text.trim().split(/\s+/g);
-  const numWords = words.length;
   const meaningfulWords = words
     .map(word => {
       word = word.toLowerCase();
@@ -119,8 +111,11 @@ function getMeaningfulWords(text) {
       return filterPunctuation(word);
     })
     .filter(word => word != null && word != "" && word != "iot");
+
+  const numWords = meaningfulWords.length;
   return { meaningfulWords, numWords };
 }
+
 module.exports = (request, res) => {
   fetchTweets()
     .then(response => Promise.resolve(response.data.statuses))
@@ -131,7 +126,7 @@ module.exports = (request, res) => {
         );
         tweet.meaningfulWords = meaningfulWords;
         tweet.numWords = numWords;
-        tweet.ratioMeaninfulWords = meaningfulWords.length / numWords;
+        tweet.ratioUniqueWords = meaningfulWords / numWords;
         return tweet;
       });
       return Promise.resolve(tweetsWithMeaningfulWords);
