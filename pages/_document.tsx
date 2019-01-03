@@ -14,7 +14,7 @@ export default class MyDocument extends Document<{ styleTags: Object }> {
 
   public render() {
     return (
-      <html lang="en">
+      <html lang="en" role="main">
         <Head>
           {this.props.styleTags}
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
