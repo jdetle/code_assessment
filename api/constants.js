@@ -182,10 +182,21 @@ const STOP_WORDS = [
   "you'll",
   "you're",
   "you've"
+].concat("cc", "mt", "ht", "via", "c");
+const DROPPED_SYMBOLS = [
+  "\n",
+  "&amp",
+  "RT",
+  "&lt",
+  "&gt",
+  "cc:",
+  "-",
+  "v/",
+  "/"
 ];
-const DROPPED_SYMBOLS = ["\n", "RT", "&lt", "&gt", "-", "v/", "/"];
 const DROPPED_REGEXES = [
   //new RegExp(/[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi),
+  new RegExp(/\d+/),
   new RegExp(
     /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/
   ),

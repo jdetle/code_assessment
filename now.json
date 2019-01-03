@@ -4,13 +4,15 @@
   "alias": "buzzwordsofiot.com",
   "builds": [
     { "src": "/static/*", "use": "@now/static" },
-    { "src": "api/aggregateIoT.js", "use": "@now/node" },
+    { "src": "api/*.js", "use": "@now/node" },
     {
       "src": "next.config.js",
       "use": "@now/next"
     }
   ],
-  "routes": [{ "src": "/api/aggregateIoT", "dest": "/api/aggregateIoT.js" }],
+  "routes": [
+    {"src": "/api/aggregateV2", "dest": "/api/aggregateV2.js"}
+  ],
   "env": {
     "CONSUMER_KEY": "@consumer_key",
     "CONSUMER_SECRET": "@consumer_secret"

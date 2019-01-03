@@ -4,10 +4,12 @@ import Container from "../components/container";
 import List from "../components/list";
 import Word, { WordProps } from "../components/word";
 import T from "../components/typography";
+
 interface ListProps {
   words: Array<[string, WordProps]>;
   totalUniqueWords: number;
 }
+
 interface ListState {
   selectedWord?: [string, WordProps];
   selectedWordIndex?: number;
@@ -22,7 +24,7 @@ export class TopTwenty extends React.Component<ListProps, ListState> {
     } else {
       url = "http://localhost:8004";
     }
-    const data = await (await fetch(`${url}/api/aggregateIoT`)).json();
+    const data = await (await fetch(`${url}/api/aggregateV2`)).json();
     return { words: data.topWords, totalUniqueWords: data.totalUniqueWords };
   }
   public state: ListState = {};

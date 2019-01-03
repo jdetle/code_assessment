@@ -22,7 +22,6 @@ function aggregateMeaningfulInformation(tweets) {
   const words = {};
   tweets.forEach(tweet => {
     let addedWords = {};
-
     tweet.meaningfulWords.forEach(word => {
       addedWords[word] = true;
       if (words[word] != null) words[word].count++;
@@ -30,7 +29,6 @@ function aggregateMeaningfulInformation(tweets) {
         words[word] = { count: 1 };
       }
     });
-
     Object.keys(addedWords).forEach(word => {
       if (words[word].retweetCount)
         words[word].retweetCount += tweet.retweet_count;
@@ -54,7 +52,6 @@ function aggregateMeaningfulInformation(tweets) {
             id: tweet.id_str
           }
         ];
-        // words[word].tweetData = [tweet];
       }
       if (words[word].tweetsWithWord) words[word].tweetsWithWord += 1;
       else {
@@ -62,15 +59,10 @@ function aggregateMeaningfulInformation(tweets) {
       }
     });
   });
-
   const sortedWords = Object.entries(words).sort(
     (a, b) => b[1].count - a[1].count
   );
-
-  let topWords = sortedWords.slice(0, 20);
-  topWords = topWords.map(word => {
-    return word;
-  });
+  const topWords = sortedWords.slice(0, 20);
   const data = {
     topWords: topWords,
     totalUniqueWords: sortedWords.length
@@ -80,6 +72,34 @@ function aggregateMeaningfulInformation(tweets) {
 function filterPunctuation(word) {
   if (word != null) word = word.replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ");
   return word;
+}
+function replaceBetween(str, start, stop) {
+  let diff = stop - start;
+  let spaces = "";
+  for (var i = 0; i < diff; i++) {
+    spaces += " ";
+  }
+  return str.substring(0, start) + spaces + str.substring(stop);
+}
+function filterEntities(tweet) {
+  const { hashtags, symbols, user_mentions, urls } = tweet.entities;
+  let text = tweet.full_text;
+  hashtags.forEach(
+    hashtag =>
+      (text = replaceBetween(text, hashtag.indices[0], hashtag.indices[1] + 1))
+  );
+  symbols.forEach(
+    symbol =>
+      (text = replaceBetween(text, symbol.indices[0], symbol.indices[1] + 1))
+  );
+  user_mentions.forEach(
+    mention =>
+      (text = replaceBetween(text, mention.indices[0], mention.indices[1] + 1))
+  );
+  urls.forEach(
+    url => (text = replaceBetween(text, url.indices[0], url.indices[1] + 1))
+  );
+  return text;
 }
 function getMeaningfulWords(text) {
   const words = text.trim().split(/\s+/g);
@@ -107,7 +127,7 @@ module.exports = (request, res) => {
     .then(tweets => {
       const tweetsWithMeaningfulWords = tweets.map(tweet => {
         const { meaningfulWords, numWords } = getMeaningfulWords(
-          tweet.full_text
+          filterEntities(tweet)
         );
         tweet.meaningfulWords = meaningfulWords;
         tweet.numWords = numWords;
