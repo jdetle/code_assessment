@@ -19,7 +19,6 @@
 ## Project Tool Choices
 --------------------
 - Near Perfect Lighthouse scores 
-- Components Built with Test Backed Development with Jest (going to try out react-testing-library for the first time)
 - SSR and Routing with next.js
 - CSS-in-JS with Styled Components
 - Static typing with TypeScript
