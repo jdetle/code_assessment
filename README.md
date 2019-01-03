@@ -33,6 +33,7 @@ The Spotify Year Wrapped Up app is impressively in its minimalism, its effective
 
 ## Running locally
 -----------------
+0. In a terminal, run `git clone git@github.com:jdetle/code_assessment` && run `npm i`
 1. In one terminal run `npm run api`
 2. You should see that the `api/aggregateV2` lambda is up and running.
 3. In a separate terminal run `npm run dev`
