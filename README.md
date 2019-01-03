@@ -25,7 +25,7 @@
 - [x] CSS-in-JS with Styled Components
 - [x] Static typing with TypeScript
 - [x] Serverless backend with Zeit's `now` (going to try this out for the first time)
-- [] Any data vizualization will be done with Semiotic (semiotic doesn't support ssr)
+- [ ] Any data vizualization will be done with Semiotic (semiotic doesn't support ssr)
 
 ## General Design Concept
 ------------------------
