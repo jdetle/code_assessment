@@ -22,7 +22,7 @@ export const ul = styled.ul`
 `;
 export const li = styled.li`
   margin-bottom: 0.4rem;
-  font-size: 3rem;
+  font-size: 2.2rem;
   font-weight: 900;
   margin: 0;
   a {

@@ -2,11 +2,15 @@ import fetch from "isomorphic-fetch";
 import React from "react";
 import Container from "../components/container";
 import List from "../components/list";
-import Button from "../components/button";
 import BarChart from "../components/barchart";
 import Word, { WordProps } from "../components/word";
 import T from "../components/typography";
-
+import styled from "styled-components";
+const VizContainer = styled(Container)`
+  @media (max-width: 420px) {
+    display: none;
+  }
+`;
 interface ListProps {
   words: Array<[string, WordProps]>;
   totalUniqueWords: number;
@@ -79,11 +83,10 @@ export class TopTwenty extends React.Component<ListProps, ListState> {
                 </List.li>
               ))}
             </List.ol>
-            )}
           </Container>
-          <Container direction="row" right>
+          <VizContainer direction="row" right>
             <BarChart words={this.props.words} />
-          </Container>
+          </VizContainer>
         </Container>
       );
     }

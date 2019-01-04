@@ -55,7 +55,7 @@ const h1 = styled.h1<{ width?: string }>`
 `;
 const h2 = styled.h2<{ width?: string }>`
   margin: 0;
-  font-size: 4.5rem;
+  font-size: 4.2rem;
   font-weight: 900;
   line-height: 4.5rem;
   @media (max-width: 420px) {
@@ -65,7 +65,7 @@ const h2 = styled.h2<{ width?: string }>`
 `;
 const h3 = styled.h3<{ width?: string }>`
   margin: 0;
-  font-size: 4rem;
+  font-size: 3.8rem;
   font-weight: 900;
   line-height: 4rem;
   @media (max-width: 420px) {
@@ -75,7 +75,7 @@ const h3 = styled.h3<{ width?: string }>`
 `;
 const h4 = styled.h4<{ width?: string }>`
   margin: 0;
-  font-size: 3.8rem;
+  font-size: 3.7rem;
   font-weight: 900;
   line-height: 3.8rem;
   @media (max-width: 420px) {
