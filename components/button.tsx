@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export default styled.a<{ primary?: boolean; xl?: boolean }>`
+export default styled.a<{ primary?: boolean; xl?: boolean; active?: boolean }>`
   display: flex;
   align-content: center;
   align-items: center;
@@ -27,6 +27,12 @@ export default styled.a<{ primary?: boolean; xl?: boolean }>`
     color: #35e0ff;
     border: 0.2rem solid #35e0ff;
   }
+  ${props =>
+    props.active &&
+    css`
+      color: #35e0ff;
+      border: 0.2rem solid #35e0ff;
+    `}
   ${props =>
     props.primary &&
     css`

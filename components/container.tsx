@@ -25,6 +25,11 @@ export default styled.div<{
     css`
       justify-content: flex-start;
     `}
+    ${props =>
+      props.right &&
+      css`
+        justify-content: flex-end;
+      `}
   ${props =>
     props.center &&
     css`
