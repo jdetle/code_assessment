@@ -66,17 +66,12 @@
   },
   "dependencies": {
     "d3": "^5.7.0",
-    "d3-array": "^2.0.3",
-    "d3-scale": "^2.1.2",
-    "d3-selection": "^1.3.2",
     "nextjs-dynamic-routes": "^2.2.1",
     "react": "^16.7.0-alpha2",
-    "react-d3-axis": "^0.1.1",
     "react-dom": "^16.7.0-alpha2",
     "react-fns": "^1.4.0",
     "react-highlight-words": "^0.15.0",
-    "react-rough": "^1.0.0-rc.1",
-    "semiotic": "^1.16.3",
+    "roughjs": "^2.2.5",
     "styled-components": "^4.1.3"
   },
   "jest": {

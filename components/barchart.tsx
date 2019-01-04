@@ -4,7 +4,6 @@ import Container from "./container";
 import Button from "./button";
 import { WordProps } from "./word";
 import { scaleBand, scaleLinear } from "d3";
-import { RoughCanvas } from "roughjs/bin/canvas";
 
 interface BarChartProps {
   words: Array<[string, WordProps]>;
@@ -134,8 +133,6 @@ export default class extends React.Component<BarChartProps, BarChartState> {
   }
 
   render() {
-    const height = 800;
-    const width = 1000;
     const { sortBy } = this.state;
     return (
       <>
